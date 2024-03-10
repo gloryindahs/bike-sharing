@@ -14,20 +14,20 @@ st.subheader('Rata-Rata Jumlah Sewa Sepeda Berdasarkan Musim dan Cuaca')
 # Membagi layar menjadi dua kolom
 col1, col2 = st.columns(2)
 
-# Scatter plot untuk Suhu
+# Scatter plot untuk Musim
 with col1:
     plt.figure(figsize=(10, 6))
-    sns.scatterplot(x='temp', y='cnt', data=day_df)
-    plt.title('Korelasi Suhu vs Jumlah Sewa Sepeda')
-    plt.xlabel('Suhu')
-    plt.ylabel('Jumlah Sepeda')
+    sns.barplot(x='season', y='cnt', data=day_df, palette="Blues_d")
+    plt.title('Rata-rata Jumlah Sewa Sepeda Berdasarkan Musim')
+    plt.xlabel('Musim')
+    plt.ylabel('Rata-rata Jumlah Sepeda')
     st.pyplot()
 
-# Scatter plot untuk Kelembaban
+# Scatter plot untuk Kondisi Cuaca
 with col2:
     plt.figure(figsize=(10, 6))
-    sns.scatterplot(x='hum', y='cnt', data=day_df)
-    plt.title('Korelasi Kelembaban vs Jumlah Sewa Sepeda')
-    plt.xlabel('Kelembaban')
-    plt.ylabel('Jumlah Sepeda')
+    sns.barplot(x='weathersit', y='cnt', data=day_df, palette="Blues_d")
+    plt.title('Rata-rata Jumlah Sewa Sepeda Berdasarkan Kondisi Cuaca')
+    plt.xlabel('Kondisi Cuaca')
+    plt.ylabel('Rata-rata Jumlah Sepeda')
     st.pyplot()
