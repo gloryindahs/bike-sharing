@@ -9,7 +9,7 @@ sns.set(style='dark')
 day_df = pd.read_csv("day.csv")
 
 st.header('Bike Share Dashboard :sparkles:')
-st.subheader('Rata-Rata Jumlah Sewa Sepeda Berdasarkan Musim dan Cuaca')
+st.subsubheader('Rata-Rata Jumlah Sewa Sepeda Berdasarkan Musim dan Cuaca')
 
 # Membagi layar menjadi dua kolom
 col1, col2 = st.columns(2)
