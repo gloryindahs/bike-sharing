@@ -92,5 +92,6 @@ with col1:
     ax.set_xlabel('windspeed')
     ax.set_ylabel('Jumlah Sepeda')
     st.pyplot(fig)
+    use_container_width=True,height=400, width=800)
 
 
