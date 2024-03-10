@@ -39,7 +39,7 @@ with col2:
 # Membagi layar menjadi dua kolom untuk suhu dan suhu terasa
 col1, col2 = st.columns(2)
 
-# Scatter plot untuk Musim
+# Scatter plot untuk Suhu
 with col1:
     sample_df = day_df.sample(10)
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -49,7 +49,7 @@ with col1:
     ax.set_ylabel('Rata-rata Jumlah Sepeda')
     st.pyplot(fig)
 
-# Scatter plot untuk Kondisi Cuaca
+# Scatter plot untuk Suhu Terasa
 with col2:
     sample_df = day_df.sample(10)
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -57,6 +57,38 @@ with col2:
     ax.set_title('Rata-rata Jumlah Sewa Sepeda Berdasarkan Suhu Terasa')
     ax.set_xlabel('atemp')
     ax.set_ylabel('Rata-rata Jumlah Sepeda')
+    st.pyplot(fig)
+
+
+
+st.text(' Kolerasi antara Jumlah Sepeda Sewaan dengan Suhu, Kelembaban dan Kecepatan Angin')
+# Membagi layar menjadi dua kolom untuk musim dan cuaca
+col1, col2 = st.columns(3)
+
+# Scatter plot untuk Korelasi Suhu vs Jumlah Sewa Sepeda
+with col1:
+    fig, ax = plt.subplots(figsize=(10, 6))
+    sns.scatterplot(x='temp', y='cnt', data=day_df)
+    ax.set_title('Korelasi Suhu vs Jumlah Sewa Sepeda')
+    ax.set_xlabel('temp)
+    ax.set_ylabel('Jumlah Sepeda')
+    st.pyplot(fig)
+
+# Scatter plot untuk Korelasi Kelembaban vs Jumlah Sewa Sepeda
+with col2:
+    fig, ax = plt.subplots(figsize=(10, 6))
+    sns.scatterplot(x='hum', y='cnt', data=day_df)
+    ax.set_title('Korelasi Kelembaban vs Jumlah Sewa Sepeda')
+    ax.set_xlabel('hum')
+    ax.set_ylabel('Jumlah Sepeda')
+    st.pyplot(fig)
+
+with col3:
+    fig, ax = plt.subplots(figsize=(10, 6))
+    sns.scatterplot(x='windspeed', y='cnt', data=day_df)
+    ax.set_title('Korelasi Kecepatan Angin vs Jumlah Sewa Sepeda')
+    ax.set_xlabel('windspeed')
+    ax.set_ylabel('Jumlah Sepeda')
     st.pyplot(fig)
 
 
