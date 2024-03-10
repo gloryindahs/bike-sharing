@@ -16,7 +16,7 @@ col1, col2 = st.columns(2)
 
 # Scatter plot untuk Musim
 with col1:
-    plt.figure(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(10, 6))
     sns.barplot(x='season', y='cnt', data=day_df, palette="Blues_d")
     plt.title('Rata-rata Jumlah Sewa Sepeda Berdasarkan Musim')
     plt.xlabel('Musim')
@@ -25,7 +25,7 @@ with col1:
 
 # Scatter plot untuk Kondisi Cuaca
 with col2:
-    plt.figure(figsize=(10, 6))
+    fig, ax = plt.subplots(figsize=(10, 6))
     sns.barplot(x='weathersit', y='cnt', data=day_df, palette="Blues_d")
     plt.title('Rata-rata Jumlah Sewa Sepeda Berdasarkan Kondisi Cuaca')
     plt.xlabel('Kondisi Cuaca')
