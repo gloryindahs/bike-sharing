@@ -23,8 +23,6 @@ with col1:
     ax.set_title('Rata-rata Jumlah Sewa Sepeda Berdasarkan Musim')
     ax.set_xlabel('Musim')
     ax.set_ylabel('Rata-rata Jumlah Sepeda')
-    ax.tick_params(axis='x', labelsize=35)
-    ax.tick_params(axis='y', labelsize=30)
     st.pyplot(fig)
 
 # Scatter plot untuk Kondisi Cuaca
@@ -34,6 +32,4 @@ with col2:
     ax.set_title('Rata-rata Jumlah Sewa Sepeda Berdasarkan Kondisi Cuaca')
     ax.set_xlabel('Kondisi Cuaca')
     ax.set_ylabel('Rata-rata Jumlah Sepeda')
-    ax.tick_params(axis='x', labelsize=35)
-    ax.tick_params(axis='y', labelsize=30)
     st.pyplot(fig)
