@@ -84,7 +84,7 @@ with col2:
     st.pyplot(fig)
 
 # Scatter plot untuk Korelasi Kecepatan Angin vs Jumlah Sewa Sepeda
-col1 = st.columns(1)
+col1, = st.columns(1)
 with col1:
     fig, ax = plt.subplots(figsize=(10, 6))
     sns.scatterplot(x='windspeed', y='cnt', data=day_df)
