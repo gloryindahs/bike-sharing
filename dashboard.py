@@ -28,6 +28,8 @@ with col1:
 # Scatter plot untuk Kondisi Cuaca
 with col2:
     fig, ax = plt.subplots(figsize=(10, 6))
+    weathersit_mapping = {1: 'Few clouds', 2: 'Mist', 3: 'Light Snow', 4: 'Snow + Fog'}
+    day_df['weathersit_name'] = day_df['weathersit'].map(weathersit_mapping)
     sns.barplot(x='weathersit', y='cnt', data=day_df, palette="Blues_d")
     ax.set_title('Rata-rata Jumlah Sewa Sepeda Berdasarkan Kondisi Cuaca')
     ax.set_xlabel('Kondisi Cuaca')
