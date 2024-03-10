@@ -70,7 +70,7 @@ with col1:
     fig, ax = plt.subplots(figsize=(10, 6))
     sns.scatterplot(x='temp', y='cnt', data=day_df)
     ax.set_title('Korelasi Suhu vs Jumlah Sewa Sepeda')
-    ax.set_xlabel('temp)
+    ax.set_xlabel('temp')
     ax.set_ylabel('Jumlah Sepeda')
     st.pyplot(fig)
 
