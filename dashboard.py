@@ -12,16 +12,20 @@ st.header('Bike Share Dashboard :sparkles:')
 col1, col2 = st.columns(2)
 st.subheader('Rata-Rata Jumlah Sewa Sepeda Berdasarkan Musim dan Cuaca')
 
-with col1:
-  
-season_mapping = {1: 'Springer', 2: 'Summer', 3: 'Fall', 4: 'Winter'}
-result_df = day_df.groupby(by="season").mean()['cnt'].sort_values(ascending=False).reset_index(drop=False)
-result_df['season'] = result_df['season'].map(season_mapping)
-print(result_df)  
+with col1:  
+ season_count = data.groupby("season_label")["cnt"].sum().reset_index()
+    fig_season_count = px.bar(season_count, x="season_label",
+                              y="cnt", title="Jumlah Penyewa berdasarkan Musim")
+    st.plotly_chart(fig_season_count, use_container_width=True,
+                    height=400, width=600)
 
-plt.figure(figsize=(10, 6))
-sns.barplot(x='season', y='cnt', data=result_df, palette="Blues_d")
-plt.title('Rata-rata Jumlah Sewa Sepeda Berdasarkan Musim')
-plt.xlabel('Musim')
-plt.ylabel('Rata-rata Jumlah Sepeda')
-plt.show()
+with col2:
+    # Weather situation-wise bike share count
+    # st.subheader("Weather Situation-wise Bike Share Count")
+
+    weather_count = data.groupby("weathersit")["cnt"].sum().reset_index()
+    fig_weather_count = px.bar(weather_count, x="weathersit",
+                               y="cnt", title="Jumlah Penyewa berdasar Cuaca")
+    # Mengatur tinggi dan lebar gambar
+    st.plotly_chart(fig_weather_count, use_container_width=True,height=400, width=800)
+
