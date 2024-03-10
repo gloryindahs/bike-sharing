@@ -9,6 +9,10 @@ sns.set(style='dark')
 
 day_df = pd.read_csv("day.csv")
 
+# Mendapatkan tanggal sekarang
+current_date = datetime.now().date()
+
+# Mendefinisikan rentang waktu, misalnya 7 hari ke belakang dari tanggal sekarang
 start_date = current_date - timedelta(days=7)
 end_date = current_date
 
@@ -23,7 +27,6 @@ with st.sidebar:
         max_value=end_date,
         value=[start_date, end_date]
     )
-
 st.header('Bike Share Dashboard :sparkles:')
 
 st.text('Rata-Rata Jumlah Sewa Sepeda Berdasarkan Musim, Cuaca, Suhu, dan Suhu Terasa')
