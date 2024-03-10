@@ -17,9 +17,9 @@ col1, col2 = st.columns(2)
 # Scatter plot untuk Musim
 with col1:
 season_mapping = {1: 'Springer', 2: 'Summer', 3: 'Fall', 4: 'Winter'}
-result_df = day_df.groupby(by="season").mean()['cnt'].sort_values(ascending=False).reset_index(drop=False)
-result_df['season'] = result_df['season'].map(season_mapping)
+data["season_label"] = data["season"].map(season_mapping)
 
+    season_count = data.groupby("season_label")["cnt"].sum().reset_index()
     fig, ax = plt.subplots(figsize=(10, 6))
     sns.barplot(x='season', y='cnt', data=day_df, palette="Blues_d")
     ax.set_title('Rata-rata Jumlah Sewa Sepeda Berdasarkan Musim')
