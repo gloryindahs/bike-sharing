@@ -19,7 +19,7 @@ with col1:
     fig, ax = plt.subplots(figsize=(10, 6))
     season_mapping = {1: 'Springer', 2: 'Summer', 3: 'Fall', 4: 'Winter'}
     day_df['season_name'] = day_df['season'].map(season_mapping)
-    sns.barplot(x='season', y='cnt', data=day_df, palette="Blues_d")
+    sns.barplot(x='season_name', y='cnt', data=day_df, palette="Blues_d")
     ax.set_title('Rata-rata Jumlah Sewa Sepeda Berdasarkan Musim')
     ax.set_xlabel('Musim')
     ax.set_ylabel('Rata-rata Jumlah Sepeda')
