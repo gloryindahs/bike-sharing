@@ -9,9 +9,9 @@ sns.set(style='dark')
 day_df = pd.read_csv("day.csv")
 
 st.header('Bike Share Dashboard :sparkles:')
-st.text('Rata-Rata Jumlah Sewa Sepeda Berdasarkan Musim dan Cuaca')
 
-# Membagi layar menjadi dua kolom
+st.text('Rata-Rata Jumlah Sewa Sepeda Berdasarkan Musim, Cuaca, Suhu, dan Suhu Terasa')
+# Membagi layar menjadi dua kolom untuk musim dan cuaca
 col1, col2 = st.columns(2)
 
 # Scatter plot untuk Musim
@@ -21,7 +21,7 @@ with col1:
     day_df['season_name'] = day_df['season'].map(season_mapping)
     sns.barplot(x='season_name', y='cnt', data=day_df, palette="Blues_d")
     ax.set_title('Rata-rata Jumlah Sewa Sepeda Berdasarkan Musim')
-    ax.set_xlabel('Musim')
+    ax.set_xlabel('season')
     ax.set_ylabel('Rata-rata Jumlah Sepeda')
     st.pyplot(fig)
 
@@ -30,8 +30,34 @@ with col2:
     fig, ax = plt.subplots(figsize=(10, 6))
     weathersit_mapping = {1: 'Few clouds', 2: 'Mist', 3: 'Light Snow', 4: 'Snow + Fog'}
     day_df['weathersit_name'] = day_df['weathersit'].map(weathersit_mapping)
-    sns.barplot(x='weathersit_name', y='cnt', data=day_df, palette="Blues_d")  # Menggunakan 'weathersit_name' sebagai sumbu x
+    sns.barplot(x='weathersit_name', y='cnt', data=day_df, palette="Blues_d")  
     ax.set_title('Rata-rata Jumlah Sewa Sepeda Berdasarkan Kondisi Cuaca')
-    ax.set_xlabel('Kondisi Cuaca')
+    ax.set_xlabel('weathersit')
     ax.set_ylabel('Rata-rata Jumlah Sepeda')
     st.pyplot(fig)
+
+# Membagi layar menjadi dua kolom untuk suhu dan suhu terasa
+col1, col2 = st.columns(2)
+
+# Scatter plot untuk Musim
+with col1:
+    sample_df = day_df.sample(10)
+    fig, ax = plt.subplots(figsize=(10, 6))
+    sns.barplot(x='temp', y='cnt', data=sample_df, palette="Blues_d")
+    ax.set_title('Rata-rata Jumlah Sewa Sepeda Berdasarkan Suhu')
+    ax.set_xlabel('temp')
+    ax.set_ylabel('Rata-rata Jumlah Sepeda')
+    st.pyplot(fig)
+
+# Scatter plot untuk Kondisi Cuaca
+with col2:
+    sample_df = day_df.sample(10)
+    fig, ax = plt.subplots(figsize=(10, 6))
+    sns.barplot(x='atemp', y='cnt', data=sample_df, palette="Blues_d")
+    ax.set_title('Rata-rata Jumlah Sewa Sepeda Berdasarkan Suhu Terasa')
+    ax.set_xlabel('atemp')
+    ax.set_ylabel('Rata-rata Jumlah Sepeda')
+    st.pyplot(fig)
+
+
+
