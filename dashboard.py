@@ -5,6 +5,8 @@ import streamlit as st
 from babel.numbers import format_currency
 sns.set(style='dark')
 
+day_df = pd.read_csv("https://raw.githubusercontent.com/gloryindahs/bike-sharing/main/day.csv")
+
 st.header('Bike Share Dashboard :sparkles:')
 st.subheader('Rata-Rata Jumlah Sewa Sepeda Berdasarkan Musim dan Cuaca')
 fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(20, 6))
