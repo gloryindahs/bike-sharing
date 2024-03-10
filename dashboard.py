@@ -13,7 +13,7 @@ day_df = pd.read_csv("day.csv")
 current_date = datetime.now().date()
 
 # Mendefinisikan rentang waktu, misalnya 7 hari ke belakang dari tanggal sekarang
-start_date = current_date - timedelta(days=7)
+start_date = current_date - timedelta(days=365)
 end_date = current_date
 
 with st.sidebar:
