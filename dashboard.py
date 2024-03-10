@@ -18,7 +18,7 @@ end_date = current_date
 
 with st.sidebar:
     # Menambahkan logo perusahaan
-    st.image("https://github.com/dicodingacademy/assets/raw/main/logo.png")
+    st.image("https://github.com/gloryindahs/bike-sharing/raw/main/bike.png")
     
     # Mengambil start_date & end_date dari date_input
     selected_dates = st.date_input(
