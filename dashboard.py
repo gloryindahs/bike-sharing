@@ -83,6 +83,7 @@ with col2:
     ax.set_ylabel('Jumlah Sepeda')
     st.pyplot(fig)
 
+# Scatter plot untuk Korelasi Kecepatan Angin vs Jumlah Sewa Sepeda
 col1 = st.columns(1)
 with col1:
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -91,6 +92,5 @@ with col1:
     ax.set_xlabel('windspeed')
     ax.set_ylabel('Jumlah Sepeda')
     st.pyplot(fig)
-
 
 
