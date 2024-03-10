@@ -8,6 +8,21 @@ sns.set(style='dark')
 
 day_df = pd.read_csv("day.csv")
 
+start_date = current_date - timedelta(days=7)
+end_date = current_date
+
+with st.sidebar:
+    # Menambahkan logo perusahaan
+    st.image("https://github.com/dicodingacademy/assets/raw/main/logo.png")
+    
+    # Mengambil start_date & end_date dari date_input
+    selected_dates = st.date_input(
+        label='Rentang Waktu',
+        min_value=start_date,
+        max_value=end_date,
+        value=[start_date, end_date]
+    )
+
 st.header('Bike Share Dashboard :sparkles:')
 
 st.text('Rata-Rata Jumlah Sewa Sepeda Berdasarkan Musim, Cuaca, Suhu, dan Suhu Terasa')
