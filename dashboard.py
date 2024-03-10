@@ -63,7 +63,7 @@ with col2:
 
 st.text(' Kolerasi antara Jumlah Sepeda Sewaan dengan Suhu, Kelembaban dan Kecepatan Angin')
 # Membagi layar menjadi dua kolom untuk musim dan cuaca
-col1, col2, colt3 = st.columns(3)
+col1, col2, col3 = st.columns(3)
 
 # Scatter plot untuk Korelasi Suhu vs Jumlah Sewa Sepeda
 with col1:
