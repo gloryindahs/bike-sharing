@@ -63,7 +63,7 @@ with col2:
 
 st.text(' Kolerasi antara Jumlah Sepeda Sewaan dengan Suhu, Kelembaban dan Kecepatan Angin')
 # Membagi layar menjadi dua kolom untuk musim dan cuaca
-col1, col2, col3 = st.columns(3)
+col1, col2, = st.columns(2)
 
 # Scatter plot untuk Korelasi Suhu vs Jumlah Sewa Sepeda
 with col1:
@@ -83,7 +83,8 @@ with col2:
     ax.set_ylabel('Jumlah Sepeda')
     st.pyplot(fig)
 
-with col3:
+col1 = st.columns(1)
+with col1:
     fig, ax = plt.subplots(figsize=(10, 6))
     sns.scatterplot(x='windspeed', y='cnt', data=day_df)
     ax.set_title('Korelasi Kecepatan Angin vs Jumlah Sewa Sepeda')
