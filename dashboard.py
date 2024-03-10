@@ -5,7 +5,7 @@ import streamlit as st
 from babel.numbers import format_currency
 sns.set(style='dark')
 
-day_df = pd.read_csv("https://raw.githubusercontent.com/gloryindahs/bike-sharing/main/day.csv")
+day_df = pd.read_csv("day.csv")
 
 st.header('Bike Share Dashboard :sparkles:')
 st.subheader('Rata-Rata Jumlah Sewa Sepeda Berdasarkan Musim dan Cuaca')
