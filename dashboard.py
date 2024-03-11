@@ -30,7 +30,7 @@ with st.sidebar:
     
 st.header('Bike Share Dashboard :sparkles:')
 
-st.text('Rata-Rata Jumlah Sewa Sepeda Berdasarkan Musim, Cuaca, Suhu, dan Suhu Terasa')
+st.subheader('Jumlah Sewa Sepeda Berdasarkan Musim, Cuaca, Suhu, dan Suhu Terasa')
 # Membagi layar menjadi dua kolom untuk musim dan cuaca
 col1, col2 = st.columns(2)
 
