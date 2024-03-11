@@ -30,7 +30,7 @@ with st.sidebar:
     
 st.header('Bike Share Dashboard :sparkles:')
 
-st.subheader('Jumlah Sewa Sepeda Berdasarkan Musim, Cuaca, Suhu, dan Suhu Terasa')
+st.markdown('### Jumlah Sewa Sepeda Berdasarkan Musim, Cuaca, Suhu, dan Suhu Terasa')
 # Membagi layar menjadi dua kolom untuk musim dan cuaca
 col1, col2 = st.columns(2)
 
@@ -81,7 +81,7 @@ with col2:
 
 
 
-st.text(' Kolerasi antara Jumlah Sepeda Sewaan dengan Suhu, Kelembaban dan Kecepatan Angin')
+st.markdown('### Kolerasi antara Jumlah Sepeda Sewaan dengan Suhu, Kelembaban, dan Kecepatan Angin')
 # Membagi layar menjadi dua kolom untuk musim dan cuaca
 col1, col2, = st.columns(2)
 
