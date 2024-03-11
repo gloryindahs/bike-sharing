@@ -82,7 +82,7 @@ with col2:
 
 
 st.markdown('### Kolerasi antara Jumlah Sepeda Sewaan dengan Suhu, Kelembaban, dan Kecepatan Angin')
-# Membagi layar menjadi dua kolom untuk musim dan cuaca
+# Membagi layar menjadi dua kolom untuk msuhu dan kelembaban
 col1, col2, = st.columns(2)
 
 # Scatter plot untuk Korelasi Suhu vs Jumlah Sewa Sepeda
@@ -114,4 +114,38 @@ with col1:
     st.pyplot(fig)
 
 
+st.markdown('### Jumlah Sewa Sepeda Selama Dua Tahun Terakhir')
+# Membagi layar menjadi dua kolom untuk hari dan bulan
+col1, col2, = st.columns(2)
 
+# Scatter plot untuk Jumlah Sewa Sepeda Berdasarkan hari dan bulan
+with col1:
+    fig, ax = plt.subplots(figsize=(10, 6))
+    weekday_mapping = {0: 'Sunday', 1: 'Monday', 2: 'Tuesday', 3: 'Wednesday', 4: 'Thursday', 5: 'Friday', 6: 'Saturday'}
+    day_df['weekday_name'] = day_df['weekday'].map(weekday_mapping)
+    sns.barplot(x='weekday_name', y='cnt', data=day_df, palette="Blues_d")  
+    ax.set_title('Rata-rata Jumlah Sewa Sepeda Setiap Harinya')
+    ax.set_xlabel('weekday')
+    ax.set_ylabel('Rata-rata Jumlah Sepeda')
+    st.pyplot(fig)
+
+with col2:
+    fig, ax = plt.subplots(figsize=(10, 6))
+    month_mapping = {1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June', 7: 'July', 8: 'August', 9: 'September', 10: 'October', 11: 'November', 12: 'December'
+    day_df['month_name'] = day_df['month'].map(month_mapping)
+    sns.barplot(x='month_name', y='cnt', data=day_df, palette="Blues_d")  
+    ax.set_title('Rata-rata Jumlah Sewa Sepeda Setiap Bulan')
+    ax.set_xlabel('month')
+    ax.set_ylabel('Rata-rata Jumlah Sepeda')
+    st.pyplot(fig)
+
+# Scatter plot untuk Jumlah Sewa Sepeda pada setiap Bulan dalam Dua Tahun Terakhir
+col1, = st.columns(1)
+with col1:
+    fig, ax = plt.subplots(figsize=(12, 6))
+    sns.lineplot(x='mnth', y='cnt', data=day_df, hue='yr', palette='Blues')
+    ax.set_title('Jumlah Sewa Sepeda Tiap Bulan dalam 2 Tahun Terakhir')
+    ax.set_xlabel('month')
+    ax.set_ylabel('Jumlah Sewa Sepeda')
+    ax.set_legend(title='year')
+    st.pyplot(fig)
