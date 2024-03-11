@@ -131,13 +131,17 @@ with col1:
 
 with col2:
     fig, ax = plt.subplots(figsize=(10, 6))
-    month_mapping = {1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June', 7: 'July', 8: 'August', 9: 'September', 10: 'October', 11: 'November', 12: 'December'
+    month_mapping = {
+    1: 'January', 2: 'February', 3: 'March', 4: 'April', 5: 'May', 6: 'June',
+    7: 'July', 8: 'August', 9: 'September', 10: 'October', 11: 'November', 12: 'December'
+    }
     day_df['month_name'] = day_df['month'].map(month_mapping)
     sns.barplot(x='month_name', y='cnt', data=day_df, palette="Blues_d")  
     ax.set_title('Rata-rata Jumlah Sewa Sepeda Setiap Bulan')
     ax.set_xlabel('month')
     ax.set_ylabel('Rata-rata Jumlah Sepeda')
     st.pyplot(fig)
+
 
 # Scatter plot untuk Jumlah Sewa Sepeda pada setiap Bulan dalam Dua Tahun Terakhir
 col1, = st.columns(1)
