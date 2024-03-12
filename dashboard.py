@@ -6,33 +6,23 @@ from babel.numbers import format_currency
 
 sns.set(style='dark')
 
-day_df = pd.read_csv("day.csv")
+# Mendapatkan tanggal sekarang
+current_date = datetime.now().date()
 
-datetime_columns = ["dteday"]
-day_df.sort_values(by="dteday", inplace=True)
-day_df.reset_index(inplace=True)
+# Mendefinisikan rentang waktu, misalnya 7 hari ke belakang dari tanggal sekarang
+start_date = current_date - timedelta(days=365)
+end_date = current_date
 
-for column in datetime_columns:
-    day_df[column] = pd.to_datetime(day_df[column])
+# Menambahkan logo perusahaan
+st.sidebar.image("https://github.com/gloryindahs/bike-sharing/raw/main/bike.png")
 
-min_date = day_df["dteday"].min()
-max_date = day_df["dteday"].max()
-
-with st.sidebar:
-    # Menambahkan logo perusahaan
-    st.image("https://github.com/gloryindahs/bike-sharing/raw/main/bike.png")
-
-    # Mengambil start_date & end_date dari date_input
-    selected_dates = st.date_input(
-        label='Rentang Waktu',
-        min_value=min_date,
-        max_value=max_date,
-        value=[min_date, max_date]
-    )
-
-# Menggunakan selected_dates untuk filter DataFrame
-main_df = day_df[(day_df["dteday"] >= selected_dates[0]) & 
-                 (day_df["dteday"] <= selected_dates[1])]
+# Mengambil start_date & end_date dari date_input
+selected_dates = st.sidebar.date_input(
+    label='Rentang Waktu',
+    min_value=datetime(2011, 1, 1).date(),  # Atur tanggal minimum ke 1 Januari 2011
+    max_value=datetime(2012, 12, 31).date(),  # Atur tanggal maksimum ke 31 Desember 2012
+    value=[start_date, end_date]
+)
 
 st.header('Bike Share Dashboard :sparkles:')
 
