@@ -22,7 +22,7 @@ with st.sidebar:
     selected_dates = st.date_input(
         label='Rentang Waktu',
         min_value=datetime(2011, 1, 1).date(),
-        max_value=datetime(2012, 12, 31),
+        max_value=datetime(2012, 12, 31).date(),
         value=[start_date, end_date]
     )
     
