@@ -12,9 +12,9 @@ day_df = pd.read_csv("day.csv")
 # Mendapatkan tanggal sekarang
 current_date = datetime.now().date()
 
-# Mendefinisikan rentang waktu, misalnya 7 hari ke belakang dari tanggal sekarang
-start_date = current_date - timedelta(days=365)
-end_date = current_date
+# Mendefinisikan rentang waktu, misalnya dari 1 Januari 2011 hingga 31 Desember 2012
+start_date = datetime(2011, 1, 1).date()
+end_date = datetime(2012, 12, 31).date()
 
 with st.sidebar:
     # Menambahkan logo perusahaan
