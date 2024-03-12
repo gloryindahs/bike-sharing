@@ -14,17 +14,18 @@ current_date = datetime.now().date()
 start_date = current_date - timedelta(days=365)
 end_date = current_date
 
-# Menambahkan logo perusahaan
-st.sidebar.image("https://github.com/gloryindahs/bike-sharing/raw/main/bike.png")
-
-# Mengambil start_date & end_date dari date_input
-selected_dates = st.sidebar.date_input(
-    label='Rentang Waktu',
-    min_value=datetime(2011, 1, 1).date(),  # Atur tanggal minimum ke 1 Januari 2011
-    max_value=datetime(2012, 12, 31).date(),  # Atur tanggal maksimum ke 31 Desember 2012
-    value=[start_date, end_date]
-)
-
+with st.sidebar:
+    # Menambahkan logo perusahaan
+    st.image("https://github.com/gloryindahs/bike-sharing/raw/main/bike.png")
+    
+    # Mengambil start_date & end_date dari date_input
+    selected_dates = st.date_input(
+        label='Rentang Waktu',
+        min_value=datetime(2011, 1, 1).date(),
+        max_value=datetime(2012, 12, 31),
+        value=[start_date, end_date]
+    )
+    
 st.header('Bike Share Dashboard :sparkles:')
 
 st.markdown('### Jumlah Sewa Sepeda Berdasarkan Musim, Cuaca, Suhu, dan Suhu Terasa')
