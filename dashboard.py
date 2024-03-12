@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import streamlit as st
 from babel.numbers import format_currency
-from datetime import datetime, timedelta
 
 sns.set(style='dark')
 
@@ -30,6 +29,8 @@ with st.sidebar:
         max_value=max_date,
         value=[min_date, max_date]
     )
+main_df = all_df[(all_df["dteday"] >= str(start_date)) & 
+                (all_df["dteday"] <= str(end_date))]
 
 st.header('Bike Share Dashboard :sparkles:')
 
