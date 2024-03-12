@@ -9,14 +9,14 @@ sns.set(style='dark')
 day_df = pd.read_csv("day.csv")
 
 datetime_columns = ["dteday"]
-all_df.sort_values(by="dteday", inplace=True)
-all_df.reset_index(inplace=True)
+day_df.sort_values(by="dteday", inplace=True)
+day_df.reset_index(inplace=True)
 
 for column in datetime_columns:
-    all_df[column] = pd.to_datetime(all_df[column])
+    day_df[column] = pd.to_datetime(all_df[column])
 
-min_date = all_df["dteday"].min()
-max_date = all_df["dteday"].max()
+min_date = day_df["dteday"].min()
+max_date = day_df["dteday"].max()
 
 with st.sidebar:
     # Menambahkan logo perusahaan
@@ -29,8 +29,8 @@ with st.sidebar:
         max_value=max_date,
         value=[min_date, max_date]
     )
-main_df = all_df[(all_df["dteday"] >= str(start_date)) & 
-                (all_df["dteday"] <= str(end_date))]
+main_df = day_df[(day_df["dteday"] >= str(start_date)) & 
+                (day_df["dteday"] <= str(end_date))]
 
 st.header('Bike Share Dashboard :sparkles:')
 
