@@ -9,12 +9,15 @@ sns.set(style='dark')
 
 day_df = pd.read_csv("day.csv")
 
-# Mendapatkan tanggal sekarang
-current_date = datetime.now().date()
-
-# Mendefinisikan rentang waktu, misalnya 7 hari ke belakang dari tanggal sekarang
-start_date = current_date - timedelta(days=365)
-end_date = current_date
+datetime_columns = ["dteday"]
+all_df.sort_values(by="dteday", inplace=True)
+all_df.reset_index(inplace=True)
+ 
+for column in datetime_columns:
+    all_df[column] = pd.to_datetime(all_df[column])
+    
+min_date = all_df["dteday"].min()
+max_date = all_df["dteday"].max()
 
 with st.sidebar:
     # Menambahkan logo perusahaan
