@@ -12,25 +12,25 @@ day_df = pd.read_csv("day.csv")
 datetime_columns = ["dteday"]
 all_df.sort_values(by="dteday", inplace=True)
 all_df.reset_index(inplace=True)
- 
+
 for column in datetime_columns:
     all_df[column] = pd.to_datetime(all_df[column])
-    
+
 min_date = all_df["dteday"].min()
 max_date = all_df["dteday"].max()
 
 with st.sidebar:
     # Menambahkan logo perusahaan
     st.image("https://github.com/gloryindahs/bike-sharing/raw/main/bike.png")
-    
+
     # Mengambil start_date & end_date dari date_input
     selected_dates = st.date_input(
         label='Rentang Waktu',
-        min_value=start_date,
-        max_value=end_date,
-        value=[start_date, end_date]
+        min_value=min_date,
+        max_value=max_date,
+        value=[min_date, max_date]
     )
-    
+
 st.header('Bike Share Dashboard :sparkles:')
 
 st.markdown('### Jumlah Sewa Sepeda Berdasarkan Musim, Cuaca, Suhu, dan Suhu Terasa')
