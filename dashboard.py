@@ -29,8 +29,10 @@ with st.sidebar:
         max_value=max_date,
         value=[min_date, max_date]
     )
-main_df = day_df[(day_df["dteday"] >= str(start_date)) & 
-                (day_df["dteday"] <= str(end_date))]
+
+# Menggunakan selected_dates untuk filter DataFrame
+main_df = day_df[(day_df["dteday"] >= selected_dates[0]) & 
+                 (day_df["dteday"] <= selected_dates[1])]
 
 st.header('Bike Share Dashboard :sparkles:')
 
